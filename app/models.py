@@ -1,15 +1,19 @@
 """Model module."""
-from sqlalchemy_mixins import ActiveRecordMixin, ReprMixin
+from sqlalchemy_mixins import AllFeaturesMixin
 
 from app.extensions import db
 
 
-class BaseModel(db.Model, ActiveRecordMixin, ReprMixin):
+class BaseModel(db.Model, AllFeaturesMixin):
     """BaseModel class for models."""
 
     _session = db.session
     __abstract__ = True
-    __repr__ = ReprMixin.__repr__
+    __repr__ = AllFeaturesMixin.__repr__
+
+    def _asdict(self):
+        """Add support to simplejson encoder."""
+        return self.to_dict()
 
 
 class Product(BaseModel):

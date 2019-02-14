@@ -3,6 +3,7 @@
 from flask import Flask
 from app.routes import api
 from app.extensions import db
+from app.config import get_config
 
 
 def create_app(config='development'):
@@ -14,13 +15,6 @@ def create_app(config='development'):
     register_blueprints(app)
 
     return app
-
-
-def get_config(config):
-    config_dict = {
-        'test': 'app.config.TestConfig',
-    }
-    return config_dict[config]
 
 
 def register_blueprints(app):

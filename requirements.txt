@@ -17,9 +17,11 @@ pickleshare==0.7.5
 prompt-toolkit==2.0.8
 ptyprocess==0.6.0
 Pygments==2.3.1
+python-dotenv==0.10.1
+simplejson==3.16.0
 six==1.12.0
 SQLAlchemy==1.2.17
-sqlalchemy-mixins==0.2.3
+sqlalchemy-mixins==1.1
 traitlets==4.3.2
 typing==3.6.6
 wcwidth==0.1.7
