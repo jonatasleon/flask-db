@@ -1,12 +1,11 @@
 """Main module."""
-
 from flask import Flask
-from app.routes import api
-from app.extensions import db
-from app.config import get_config
+from .routes import api
+from .extensions import db
+from .config import get_config
 
 
-def create_app(config='development'):
+def create_app(config="development"):
     """Create and set up Flask app."""
     app = Flask(__name__)
     app.config.from_object(get_config(config))

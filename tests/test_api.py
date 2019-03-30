@@ -51,4 +51,16 @@ class TestAPI(unittest.TestCase):
         }
         models.Product.create(id=1, name='Towel')
         res = self.client.get(url_for('api.get_product', id=1))
+        self.assertEqual(200, res.status_code, 'Status code must be 200')
         self.assertEqual(expected, res.json, 'Towel wasn\'t returned')
+
+    def test_product_not_found(self):
+        """Test must return 404 status code if product wasn't find."""
+        expected = 404
+        res = self.client.get(url_for('api.get_product', id=1))
+        self.assertEqual(expected, res.status_code)
+
+    # def test_product_update(self):
+    #     """Test whether product is updated when PUT method is used."""
+    #     expcted =
+    #     models.Product.create(id=1, name='Towel')
